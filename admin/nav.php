@@ -67,7 +67,7 @@
 				<td width="5%" height="36" class="firstCol"><input type="checkbox" name="checkid[]" value="<?php echo $row['id']; ?>" /></td>
 				<td width="3%"><?php echo $row['id']; ?>
 					<input type="hidden"  name="id[]"id="id[]" value="<?php echo $row['id']; ?>" /></td>
-				<td width="27%"><?php echo $classname; ?> <?php echo $row['classname2']; ?></td>
+				<td width="27%"><?php echo $classname; ?></td>
 				<td width="15%" class="number"><?php echo $row['linkurl']; ?></td>
 				<td width="15%" align="center"><a href="nav_save.php?action=up&id=<?php echo $row['id']; ?>&parentid=<?php echo $row['parentid']; ?>&orderid=<?php echo $row['orderid']; ?>" class="leftArrow" title="提升排序"></a>
 					<input type="text" name="orderid[]" id="orderid[]" class="inputls" value="<?php echo $row['orderid']; ?>" />

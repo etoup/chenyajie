@@ -24,7 +24,7 @@ if($action == 'add')
 	$parentstr = $doaction->GetParentStr();
 
 
-	$sql = "INSERT INTO `$tbname` (siteid, parentid, parentstr, classname, classname2, linkurl, linkurl2, relinkurl, picurl, target, orderid, checkinfo) VALUES ('$cfg_siteid', '$parentid', '$parentstr', '$classname', '$linkurl', '$linkurl2', '$relinkurl', '$picurl', '$target', '$orderid', '$checkinfo')";
+	$sql = "INSERT INTO `$tbname` (siteid, parentid, parentstr, classname, linkurl, relinkurl, picurl, target, orderid, checkinfo) VALUES ('$cfg_siteid', '$parentid', '$parentstr', '$classname', '$linkurl', '$relinkurl', '$picurl', '$target', '$orderid', '$checkinfo')";
 	if($dosql->ExecNoneQuery($sql))
 	{
 		header("location:$gourl");
@@ -47,7 +47,7 @@ else if($action == 'update')
 	}
 
 
-	$sql = "UPDATE `$tbname` SET siteid='$cfg_siteid', parentid='$parentid', parentstr='$parentstr', classname='$classname', classname2='$classname2', linkurl='$linkurl', linkurl2='$linkurl2', relinkurl='$relinkurl', picurl='$picurl', target='$target', orderid='$orderid', checkinfo='$checkinfo' WHERE id=$id";
+	$sql = "UPDATE `$tbname` SET siteid='$cfg_siteid', parentid='$parentid', parentstr='$parentstr', classname='$classname', linkurl='$linkurl', relinkurl='$relinkurl', picurl='$picurl', target='$target', orderid='$orderid', checkinfo='$checkinfo' WHERE id=$id";
 	if($dosql->ExecNoneQuery($sql))
 	{
 		header("location:$gourl");

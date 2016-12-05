@@ -22,23 +22,13 @@
 				<span class="maroon">*</span><span class="cnote">带<span class="maroon">*</span>号表示为必填项</span></td>
 		</tr>
 		<tr>
-			<td height="40" align="right">导航名称【中文】：</td>
+			<td height="40" align="right">导航名称：</td>
 			<td><input type="text" name="classname" id="classname" class="input" />
 				<span class="maroon">*</span><span class="cnote">导航图片不为空，则以导航图片为优先级展示</span></td>
 		</tr>
 		<tr>
-			<td height="40" align="right">导航名称【英文】：</td>
-			<td><input type="text" name="classname2" id="classname2" class="input" />
-				<span class="maroon">*</span><span class="cnote">导航图片不为空，则以导航图片为优先级展示</span></td>
-		</tr>
-		<tr>
-			<td height="40" align="right">跳转链接【中文】：</td>
+			<td height="40" align="right">跳转链接：</td>
 			<td><input type="text" name="linkurl" id="linkurl" class="input" />
-				<span class="maroon">*</span></td>
-		</tr>
-		<tr>
-			<td height="40" align="right">跳转链接【英文】：</td>
-			<td><input type="text" name="linkurl2" id="linkurl2" class="input" />
 				<span class="maroon">*</span></td>
 		</tr>
 		<tr>

@@ -258,7 +258,7 @@ if($action == 'add')
 	}
 
 
-	$sql = "INSERT INTO `$tbname` (siteid, classid, parentid, parentstr, mainid, mainpid, mainpstr, title, title2, colorval, boldval, flag, source, author, linkurl, keywords, description, description2, content, content2, picurl, picarr, orderid, hits, posttime, checkinfo {$fieldname}) VALUES ('$cfg_siteid', '$classid', '$parentid', '$parentstr', '$mainid', '$mainpid', '$mainpstr', '$title', '$title2', '$colorval', '$boldval', '$flag', '$source', '$author', '$linkurl', '$keywords', '$description', '$description2', '$content', '$content2', '$picurl', '$picarr', '$orderid', '$hits', '$posttime', '$checkinfo' {$fieldvalue})";
+	$sql = "INSERT INTO `$tbname` (siteid, classid, parentid, parentstr, mainid, mainpid, mainpstr, title, colorval, boldval, flag, source, author, linkurl, keywords, description, content, picurl, picarr, orderid, hits, posttime, checkinfo {$fieldname}) VALUES ('$cfg_siteid', '$classid', '$parentid', '$parentstr', '$mainid', '$mainpid', '$mainpstr', '$title', '$colorval', '$boldval', '$flag', '$source', '$author', '$linkurl', '$keywords', '$description', '$content', '$picurl', '$picarr', '$orderid', '$hits', '$posttime', '$checkinfo' {$fieldvalue})";
 	if($dosql->ExecNoneQuery($sql))
 	{
 		header("location:$gourl");
@@ -509,7 +509,7 @@ else if($action == 'update')
 	}
 
 
-	$sql = "UPDATE `$tbname` SET siteid='$cfg_siteid', classid='$classid', parentid='$parentid', parentstr='$parentstr', mainid='$mainid', mainpid='$mainpid', mainpstr='$mainpstr', title='$title', title2='$title2', colorval='$colorval', boldval='$boldval', flag='$flag', source='$source', author='$author', linkurl='$linkurl', keywords='$keywords', description='$description', description2='$description2', content='$content', content2='$content2', picurl='$picurl', picarr='$picarr', orderid='$orderid', hits='$hits', posttime='$posttime', checkinfo='$checkinfo' {$fieldstr} WHERE id=$id";
+	$sql = "UPDATE `$tbname` SET siteid='$cfg_siteid', classid='$classid', parentid='$parentid', parentstr='$parentstr', mainid='$mainid', mainpid='$mainpid', mainpstr='$mainpstr', title='$title', colorval='$colorval', boldval='$boldval', flag='$flag', source='$source', author='$author', linkurl='$linkurl', keywords='$keywords', description='$description', content='$content', picurl='$picurl', picarr='$picarr', orderid='$orderid', hits='$hits', posttime='$posttime', checkinfo='$checkinfo' {$fieldstr} WHERE id=$id";
 	if($dosql->ExecNoneQuery($sql))
 	{
 		header("location:$gourl");

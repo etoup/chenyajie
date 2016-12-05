@@ -473,7 +473,7 @@ else if($action == 'update')
 	}
 
 
-	$sql = "UPDATE `$tbname` SET title='$title', title1='$title1', title2='$title2', title3='$title3', picurl='$picurl', linkurl='$linkurl', content='$description', bz='$bz', title11='$title11', title22='$title22', title33='$title33', content2='$description2' WHERE id=$id";
+	$sql = "UPDATE `$tbname` SET title='$title', title1='$title1', title2='$title2', title3='$title3', picurl='$picurl', linkurl='$linkurl', content='$description', bz='$bz' WHERE id=$id";
 	if($dosql->ExecNoneQuery($sql))
 	{
 		header("location:$gourl");

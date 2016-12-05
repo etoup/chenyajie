@@ -96,13 +96,12 @@ $(document).ready(function(){
 			<nav>
 				<a class="icon_menu" id="index_xs"><img src="img/caidan.png"></a>
 				<ul id="menu">
-				
 					<li data-menuanchor="page1" class="active"><a data-name="home" href="#page1"><span>首页</span></a></li>
 				<?php echo GetNav(); ?>
 				<li style=" width:100%;float:right" id="index_x"><img src="img/close.png" style="padding-right:15px; float:right; margin-top:10px"></li>
 				</ul> 
 			</nav>
-			<div class="nav-tel" style="font-size:16px"><a href="index.php">简体中文 </a> | <a style="color:#fff" href="indexen.php">English</a></div>
+			<a href="tel:<?php echo $cfg_hotline; ?>" class="nav-tel"><b></b><?php echo $cfg_hotline; ?></a>
 		</div>
 	</header>
 <div class="page-container">
@@ -137,7 +136,7 @@ $(document).ready(function(){
 		while($row = $dosql->GetArray())
 		{
 		?>
-								<h2><a href="<?php echo $row['linkurl']; ?>"><?php echo $row['title1']; ?><b><?php echo $row['title2']; ?></b></a></h2> 
+								<h2><a href="<?php echo $row['linkurl']; ?>"><?php echo $row['title1']; ?><b><?php echo $row['title2']; ?></a></b></h2> 
 								<p class="intro"><?php echo $row['content']; ?></p>
 								<p class="img"><img alt="<?php echo $row['title1']; ?>" src="<?php echo $row['picurl']; ?>" /></p>
 			<?php

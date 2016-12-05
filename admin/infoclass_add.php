@@ -57,14 +57,8 @@
 			<td>&nbsp;</td>
 		</tr>
 		<tr>
-			<td height="40" align="right">栏目名称【中文】：</td>
+			<td height="40" align="right">栏目名称：</td>
 			<td><input name="classname" type="text" id="classname" class="input" />
-				<span class="maroon">*</span></td>
-			<td>&nbsp;</td>
-		</tr>
-		<tr>
-			<td height="40" align="right">栏目名称【英文】：</td>
-			<td><input name="classname2" type="text" id="classname2" class="input" />
 				<span class="maroon">*</span></td>
 			<td>&nbsp;</td>
 		</tr>

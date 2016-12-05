@@ -1,6 +1,5 @@
 <?php require_once(dirname(__FILE__).'/include/config.inc.php'); 
 $cid = empty($cid) ? 2 : intval($cid);
-$lang = empty($lang) ? '0' : intval($lang);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -30,7 +29,6 @@ $lang = empty($lang) ? '0' : intval($lang);
 					else if($cfg_isreurl=='Y') $gourl = 'newsshow-'.$row['classid'].'-'.$row['id'].'-1.html';
 					else $gourl = $row['linkurl'];
 			?>
-			<?php if($lang=='0'){ ?>
 			<li class="clearfix">
 					<div class="news-img">
 						<a title="<?php echo $row['title']; ?>" href="<?php echo $gourl; ?>" class="img">
@@ -49,27 +47,8 @@ $lang = empty($lang) ? '0' : intval($lang);
 						<a href="<?php echo $gourl; ?>" class="more">查看详情>></a>
 						<p class="date"><?php echo MyDate('d', $row['posttime']); ?><span><?php echo MyDate('m', $row['posttime']); ?></span></p>				
 				</li>
-				<?php }else{ ?>
-						<li class="clearfix">
-					<div class="news-img">
-						<a title="<?php echo $row['title2']; ?>" href="<?php echo $gourl; ?>&lang=1" class="img">
-														<img src="<?php echo $row['picurl']; ?>" alt="<?php echo $row['title2']; ?>" />						</a> 
-						<div class="bl"></div>
-					</div> 
-					 
-						<h2><a href="<?php echo $gourl; ?>&lang=1"><?php echo $row['title2']; ?></a></h2>
-						<p class="info">时间：<?php echo GetDateTime($row['posttime']); ?><u>•</u>点击：<?php echo $row['hits']; ?> 次</p>
-						<p class="desc"><?php
-				if($row['description2'] != '')
-					echo ReStrLen($row['description2'],26);
-				else
-					echo '网站资料更新中...';
-				?></p>
-						<a href="<?php echo $gourl; ?>&lang=1" class="more">details >></a>
-						<p class="date"><?php echo MyDate('d', $row['posttime']); ?><span><?php echo MyDate('m', $row['posttime']); ?></span></p>				
-				</li>
 			<?php
-			}}
+			}
 			?>
 				</ul>
 		<?php echo $dopage->GetList(); ?></div> 
@@ -84,7 +63,6 @@ $lang = empty($lang) ? '0' : intval($lang);
 	</ul>
 </div>
 <div class="sub-nav">
-<?php if($lang=='0'){ ?>
 	<div class="news-cate"> 
 		<a <?php if($cid==2){ ?>class="cur"<?php }?> href="news.php">全部</a>
 		 <?php 
@@ -97,22 +75,6 @@ $lang = empty($lang) ? '0' : intval($lang);
 		<a <?php if($cid==$id){ ?>class="cur"<?php }?> href="news.php?cid=<?php echo $row['id']?>" ><?php echo  $classname?></a>
 		<?php } ?>
 	</div>
-	<?php }else{ ?>
-		<div class="news-cate"> 
-		<a <?php if($cid==2){ ?>class="cur"<?php }?> href="news.php?lang=1">All</a>
-		 <?php 
-	$dosql->Execute("SELECT * FROM `#@__infoclass` WHERE parentid=2 ORDER BY orderid ASC");
-	while($row = $dosql->GetArray())
-	{
-	    $id=$row['id'];
-		$classname2 = $row['classname2'];
-			 ?>
-		<a <?php if($cid==$id){ ?>class="cur"<?php }?> href="news.php?cid=<?php echo $row['id']?>&lang=1" ><?php echo  $classname2; ?></a>
-		<?php } ?>
-	</div>
-		<?php } ?>
-		
-	<?php if($lang=='0'){ ?>
 	<div class="news-cate-dropdown">
 		<button><?php if($cid==1){ ?>全部<?php }else{ ?><?php echo GetCatName($cid); ?><?php } ?> V</button>
 		<ul>
@@ -121,29 +83,14 @@ $lang = empty($lang) ? '0' : intval($lang);
 	$dosql->Execute("SELECT * FROM `#@__infoclass` WHERE parentid=2 ORDER BY orderid ASC");
 	while($row = $dosql->GetArray())
 	{
+	    $id=$row['id'];
 		$classname = $row['classname'];
 			 ?>
-			<li><a href="news.php?cid=<?php echo $row['id']?>"><?php echo  $classname; ?></a></li>
+			<li><a href="news.php?cid=<?php echo $row['id']?>"><?php echo  $classname?></a></li>
 			<?php } ?>
 				</ul>
 	</div>
-<?php }else{ ?>
-	<div class="news-cate-dropdown">
-		<button><?php if($cid==1){ ?>All<?php }else{ ?><?php echo GetCatName2($cid); ?><?php } ?> V</button>
-		<ul>
-			<li><a href="news.php?lang=1">All</a></li>
-			 <?php 
-	$dosql->Execute("SELECT * FROM `#@__infoclass` WHERE parentid=2 ORDER BY orderid ASC");
-	while($row = $dosql->GetArray())
-	{
-		$classname2 = $row['classname2'];
-			 ?>
-			<li><a href="news.php?cid=<?php echo $row['id']?>&lang=1"><?php echo  $classname2; ?></a></li>
-			<?php } ?>
-				</ul>
-	</div>
-	<?php } ?>
-	
+
 </div>
 
 <aside class="main">
@@ -152,10 +99,9 @@ $lang = empty($lang) ? '0' : intval($lang);
 		$dopage->GetPage("SELECT * FROM `pmw_imgtext` WHERE id=1");
 		while($row = $dosql->GetArray())
 		{
-		?><?php if($lang=='0'){ ?><a href="index.php"><?php }else{ ?><a href="indexen.php"><?php } ?><img alt="logo图片" src="<?php echo $row['picurl']; ?>" width="100%" /></a><?php
+		?><a href="index.php"><img alt="logo图片" src="<?php echo $row['picurl']; ?>" width="100%" /></a><?php
 		}
-		?></h1><br>
-		<div style="width:100%; text-align:center; font-weight:bold;"><a  <?php if($lang=='0'){ ?>style="color:#009900"<?php } ?> href="?lang=0">简体中文</a> | <a <?php if($lang=='1'){ ?>style="color:#009900"<?php } ?> href="?lang=1">English</a></div>
+		?></h1>
 <div class="qrcode aside-container"><?php
 
 		$dopage->GetPage("SELECT * FROM `pmw_imgtext` WHERE id=10");
@@ -167,19 +113,11 @@ $lang = empty($lang) ? '0' : intval($lang);
 <p>扫一扫微信二维码<i></i></p>
 </div>
 <nav class="aside-container">
-<?php if($lang=='0'){ ?>
 	<ul>
 		<li><a href="index.php">网站首页</a></li>
 		<li><a href="case.php"><?php echo GetCatName(1); ?></a></li>
 		<li><a class="cur" href="news.php"><?php echo GetCatName(2); ?></a></li>
 	</ul>
-	<?php }else{ ?>
-	<ul>
-		<li><a href="indexen.php">Home page</a></li>
-		<li><a href="case.php?lang=1"><?php echo GetCatName2(1); ?></a></li>
-		<li><a class="cur" href="news.php?lang=1"><?php echo GetCatName2(2); ?></a></li>
-	</ul>
-	<?php } ?>
 </nav>
 <footer>
 <?php echo $cfg_author; ?><br />

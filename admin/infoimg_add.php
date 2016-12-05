@@ -43,19 +43,10 @@
 		}
 		?>
 		<tr>
-			<td height="40" align="right">文章标题【中文】：</td>
+			<td height="40" align="right">文章标题：</td>
 			<td><input type="text" name="title" id="title" class="input" />
 				<span class="maroon">*</span>
-				<div class="titlePanel" style="display:none">
-					<input type="hidden" name="colorval" id="colorval" />
-					<input type="hidden" name="boldval" id="boldval" />
-					<span onclick="colorpicker('colorpanel','colorval','title');" class="color" title="标题颜色"> </span> <span id="colorpanel"></span> <span onclick="blodpicker('boldval','title');" class="blod" title="标题加粗"> </span> <span onclick="clearpicker()" class="clear" title="清除属性">[#]</span> &nbsp; </div></td>
-		</tr>
-		<tr>
-			<td height="40" align="right">文章标题【英文】：</td>
-			<td><input type="text" name="title2" id="title2" class="input" />
-				<span class="maroon">*</span>
-				<div class="titlePanel" style="display:none">
+				<div class="titlePanel">
 					<input type="hidden" name="colorval" id="colorval" />
 					<input type="hidden" name="boldval" id="boldval" />
 					<span onclick="colorpicker('colorpanel','colorval','title');" class="color" title="标题颜色"> </span> <span id="colorpanel"></span> <span onclick="blodpicker('boldval','title');" class="blod" title="标题加粗"> </span> <span onclick="clearpicker()" class="clear" title="清除属性">[#]</span> &nbsp; </div></td>
@@ -121,14 +112,8 @@
 				<span class="cnote">多关键词之间用空格或者“,”隔开</span></td>
 		</tr>
 		<tr>
-			<td height="104" align="right">摘　要【中文】：</td>
+			<td height="104" align="right">摘　要：</td>
 			<td><textarea name="description" id="description" class="textdesc"></textarea>
-				<div class="hr_5"></div>
-				最多能输入 <strong>255</strong> 个字符 </td>
-		</tr>
-		<tr>
-			<td height="104" align="right">摘　要【英文】：</td>
-			<td><textarea name="description2" id="description2" class="textdesc"></textarea>
 				<div class="hr_5"></div>
 				最多能输入 <strong>255</strong> 个字符 </td>
 		</tr>
@@ -148,7 +133,7 @@
 					});
 				});
 				</script>
-				<div class="editToolbar" style="display:none">
+				<div class="editToolbar">
 					<input type="checkbox" name="remote" id="remote" value="true" />
 					下载远程图片和资源
 					&nbsp;
@@ -165,40 +150,7 @@
 					<input type="text" name="autopagesize" id="autopagesize" value="5" size="6" class="inputls" />
 					KB</div></td>
 		</tr>
-		<tr>
-			<td height="340" align="right">详细内容：</td>
-			<td><textarea name="content2" id="content2" class="kindeditor"></textarea>
-				<script>
-				var editor;
-				KindEditor.ready(function(K) {
-					editor = K.create('textarea[name="content2"]', {
-						allowFileManager : true,
-						width:'667px',
-						height:'280px',
-						extraFileUploadParams : {
-							sessionid :  '<?php echo session_id(); ?>'
-						}
-					});
-				});
-				</script>
-				<div class="editToolbar" style="display:none">
-					<input type="checkbox" name="remote" id="remote" value="true" />
-					下载远程图片和资源
-					&nbsp;
-					<input type="checkbox" name="autothumb" id="autothumb" value="true" />
-					提取第一个图片为缩略图
-					&nbsp;
-					<input type="checkbox" name="autodesc" id="autodesc" value="true" />
-					提取
-					<input type="text" name="autodescsize" id="autodescsize" value="200" size="3" class="inputls" />
-					字到摘要
-					&nbsp;
-					<input type="checkbox" name="autopage" id="autopage" value="true" />
-					自动分页
-					<input type="text" name="autopagesize" id="autopagesize" value="5" size="6" class="inputls" />
-					KB</div></td>
-		</tr>
-		<tr class="nb" style="display:none">
+		<tr class="nb">
 			<td height="124" align="right">组　图：</td>
 			<td><fieldset class="picarr">
 					<legend>列表</legend>

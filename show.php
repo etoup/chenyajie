@@ -4,7 +4,6 @@ require_once(dirname(__FILE__).'/include/config.inc.php');
 //初始化参数检测正确性
 $cid = empty($cid) ? 1 : intval($cid);
 $id  = empty($id)  ? 0 : intval($id);
-$lang = empty($lang) ? '0' : intval($lang);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -32,7 +31,6 @@ $lang = empty($lang) ? '0' : intval($lang);
 <div id="main-container">
 	<div class="inner-wrap">
 		<div class="case-detail">
-		<?php if($lang=='0'){ ?>
 			<p class="caption">项目介绍</p>
 			<h1>[<?php echo $row['title']; ?>]</h1><span class="info"><?php echo $row['keywords']; ?></span>
 			<?php $row2 = $dosql->GetOne("SELECT * FROM `#@__infoclass` WHERE id=$cid"); ?>
@@ -50,25 +48,6 @@ $lang = empty($lang) ? '0' : intval($lang);
 				else
 					echo '网站资料更新中...';
 				?></div> 
-				<?php }else{ ?>
-							<p class="caption">Project Introduction</p>
-			<h1>[<?php echo $row['title2']; ?>]</h1><span class="info"><?php echo $row['keywords']; ?></span>
-			<?php $row2 = $dosql->GetOne("SELECT * FROM `#@__infoclass` WHERE id=$cid"); ?>
-			<div class="intro"><?php
-				if($row['description2'] != '')
-					echo ReStrLen($row['description2'],200);
-				else
-					echo '网站资料更新中...';
-				?></div>
-			<p class="caption"><?php echo $row2['classname2']; ?></p> 
-			<div class="imgs">
-						<?php
-				if($row['content2'] != '')
-					echo GetContPage($row['content2']);
-				else
-					echo '网站资料更新中...';
-				?></div> 
-				<?php } ?>
 		</div> 
 	</div>
 	<ul class="btns">
@@ -83,11 +62,7 @@ $lang = empty($lang) ? '0' : intval($lang);
 </div>
 <div class="sub-nav">
 	<ul class="btn">
-	<?php if($lang=='0'){ ?>
-		<li><a href="case.php"><img src="img/home.png"></span><span style="margin-left:5px" class="yc"><?php echo GetCatName(1); ?></span></a></li>
-		<?php }else{ ?>
-			<li><a href="case.php?lang=1"><img src="img/home.png"></span><span style="margin-left:5px" class="yc"><?php echo GetCatName2(1); ?></span></a></li>
-			<?php } ?>
+	<li><a href="case.php"><img src="img/home.png"><span style="margin-left:5px" class="yc"><?php echo GetCatName(1); ?></span></a></li>
 	<?php
 	
 				//获取上一篇信息
@@ -103,11 +78,7 @@ $lang = empty($lang) ? '0' : intval($lang);
 						$gourl = 'show.php?cid='.$r['classid'].'&id='.$r['id'];
 					else
 						$gourl = 'show-'.$r['classid'].'-'.$r['id'].'-1.html';
-if($lang=='0'){
-echo ' <li><a href="'.$gourl.'"><span><img src="img/pre.png"></span></span></a></li>';
-}else{
-echo ' <li><a href="'.$gourl.'&lang=1"><span><img src="img/pre.png"></span></span></a></li>';
-}
+echo ' <li><a href="'.$gourl.'"><span><img src="img/pre.png"></span></a></li>';
 				}
 
 				//获取下一篇信息
@@ -124,11 +95,7 @@ echo ' <li><a href="'.$gourl.'&lang=1"><span><img src="img/pre.png"></span></spa
 					else
 						$gourl = 'show-'.$r['classid'].'-'.$r['id'].'-1.html';
 
-					if($lang=='0'){
-					echo ' <li><a href="'.$gourl.'"><span><img src="img/next.png"></span></span></a></li>';
-					}else{
-					echo ' <li><a href="'.$gourl.'&lang=1"><span><img src="img/next.png"></span></span></a></li>';
-					}
+					echo ' <li><a href="'.$gourl.'"><span><img src="img/next.png"></span></a></li>';
 				}
 				?>
 	</ul>
@@ -140,10 +107,9 @@ echo ' <li><a href="'.$gourl.'&lang=1"><span><img src="img/pre.png"></span></spa
 		$dopage->GetPage("SELECT * FROM `pmw_imgtext` WHERE id=1");
 		while($row = $dosql->GetArray())
 		{
-		?><?php if($lang=='0'){ ?><a href="index.php"><?php }else{ ?><a href="indexen.php"><?php } ?><img alt="logo图片" src="<?php echo $row['picurl']; ?>" width="100%" /></a><?php
+		?><a href="index.php"><img alt="logo图片" src="<?php echo $row['picurl']; ?>" width="100%" /></a><?php
 		}
 		?></h1>
-		<div style="width:100%; text-align:center; font-weight:bold"><a  <?php if($lang=='0'){ ?>style="color:#009900"<?php } ?> href="<?php echo 'http://'.$_SERVER['SERVER_NAME'].':'.$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"]; ?>&lang=0">简体中文</a> | <a <?php if($lang=='1'){ ?>style="color:#009900"<?php } ?> href="?<?php echo 'http://'.$_SERVER['SERVER_NAME'].':'.$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"]; ?>&lang=1">English</a></div>
 <div class="qrcode aside-container"><?php
 
 		$dopage->GetPage("SELECT * FROM `pmw_imgtext` WHERE id=10");
@@ -155,19 +121,11 @@ echo ' <li><a href="'.$gourl.'&lang=1"><span><img src="img/pre.png"></span></spa
 <p>扫一扫微信二维码<i></i></p>
 </div>
 <nav class="aside-container">
-	<?php if($lang=='0'){ ?>
 	<ul>
 		<li><a href="index.php">网站首页</a></li>
 		<li><a class="cur" href="case.php"><?php echo GetCatName(1); ?></a></li>
 		<li><a href="news.php"><?php echo GetCatName(2); ?></a></li>
 	</ul>
-	<?php }else{ ?>
-	<ul>
-		<li><a href="indexen.php">Home page</a></li>
-		<li><a class="cur" href="case.php?lang=1"><?php echo GetCatName2(1); ?></a></li>
-		<li><a href="news.php?lang=1"><?php echo GetCatName2(2); ?></a></li>
-	</ul>
-	<?php } ?>
 </nav>
    	<?php
 			}

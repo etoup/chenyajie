@@ -402,17 +402,7 @@ function GetCatName($cid=0)
 		return '';
 }
 
-function GetCatName2($cid=0)
-{
-	global $dosql;
 
-	$r = $dosql->GetOne("SELECT `classname2` FROM `#@__infoclass` WHERE `id`=$cid");
-
-	if(isset($r['classname2']))
-		return $r['classname2'];
-	else
-		return '';
-}
 
 /*
  * 获取当前页面位置
@@ -572,25 +562,6 @@ function GetNav($pid=1)
 		else
 			$classname = $row['classname'];
 		 $str .= '<li data-menuanchor="page'.$i.'"><a href="'.$gourl.'"><span>'.$classname.'</span></a></li>';
-
-		 $i++;
-  }
-	return $str;
-}
-function GetNav2($pid=1)
-{
-	global $dosql, $cfg_isreurl;
-    $i=2;
-	$str = '';
-	$dosql->Execute("SELECT * FROM `#@__nav` WHERE parentid=$pid AND checkinfo=true ORDER BY orderid ASC");
-	while($row = $dosql->GetArray())
-	{    
-	$gourl2 = $row['linkurl2'];
-		if($row['picurl'] != '')
-			$classname = '<img src="'.$row['picurl'].'" />';
-		else
-			$classname2 = $row['classname2'];
-		 $str .= '<li data-menuanchor="page'.$i.'"><a href="'.$gourl2.'"><span>'.$classname2.'</span></a></li>';
 
 		 $i++;
   }

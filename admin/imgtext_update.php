@@ -50,28 +50,16 @@ $row = $dosql->GetOne("SELECT * FROM `#@__imgtext` WHERE `id`=$id");
 			<td><input type="text" name="title" id="title" class="input" value="<?php echo $row['title']; ?>" /></td>
 		</tr>
 				<tr>
-			<td height="40" align="right">主标题【中文】：</td>
+			<td height="40" align="right">主标题：</td>
 			<td><input type="text" name="title1" id="title1" class="input" value="<?php echo $row['title1']; ?>" /></td>
 		</tr>
-		<tr>
-			<td height="40" align="right">主标题【英文】：</td>
-			<td><input type="text" name="title11" id="title11" class="input" value="<?php echo $row['title11']; ?>" /></td>
-		</tr>
 				<tr>
-			<td height="40" align="right">副标题【中文】：</td>
+			<td height="40" align="right">副标题：</td>
 			<td><input type="text" name="title2" id="title2" class="input" value="<?php echo $row['title2']; ?>" /></td>
 		</tr>
-		<tr>
-			<td height="40" align="right">副标题【英文】：</td>
-			<td><input type="text" name="title22" id="title22" class="input" value="<?php echo $row['title22']; ?>" /></td>
-		</tr>
 				<tr>
-			<td height="40" align="right">副标题2【中文】：</td>
+			<td height="40" align="right">副标题2：</td>
 			<td><input type="text" name="title3" id="title3" class="input" value="<?php echo $row['title3']; ?>" /></td>
-		</tr>
-		<tr>
-			<td height="40" align="right">副标题2【英文】：</td>
-			<td><input type="text" name="title33" id="title33" class="input" value="<?php echo $row['title33']; ?>" /></td>
 		</tr>
 		<tr class="nb" style="display:none">
 			<td height="40" align="right">属　性：</td>
@@ -145,14 +133,8 @@ $row = $dosql->GetOne("SELECT * FROM `#@__imgtext` WHERE `id`=$id");
 				<span class="cnote">多关键词之间用空格或者“,”隔开</span></td>
 		</tr>
 		<tr>
-			<td height="104" align="right">内容【中文】：</td>
+			<td height="104" align="right">内容：</td>
 			<td><textarea name="description" id="description" class="textdesc"><?php echo $row['content']; ?></textarea>
-				<div class="hr_5"></div>
-				最多能输入 <strong>255</strong> 个字符 </td>
-		</tr>
-		<tr>
-			<td height="104" align="right">内容【英文】：</td>
-			<td><textarea name="description2" id="description2" class="textdesc"><?php echo $row['content2']; ?></textarea>
 				<div class="hr_5"></div>
 				最多能输入 <strong>255</strong> 个字符 </td>
 		</tr>
