@@ -369,24 +369,7 @@ $(document).ready(function(){
 			?>
 				</hgroup>
 				<div class="section-content">
-					<ul class="partner-list clearfix">
-					<?php
-		$dopage->GetPage("SELECT * FROM `pmw_imgtext` WHERE (id=57 or id=58 or id=59 or id=60 or id=61 or id=62 or id=63 or id=64 or id=65 or id=66)");
-		while($row = $dosql->GetArray())
-		{
-		?>
-						<li>
-							<div class="con">
-								<div class="img"><img alt="<?php echo $row['title1']; ?>" src="<?php echo $row['picurl']; ?>" /></div>
-								<h4><a href="<?php echo $row['linkurl']; ?>"><?php echo $row['title1']; ?></a></h4>
-								<p><a href="<?php echo $row['linkurl']; ?>"><?php echo $row['title2']; ?></a></p>
-							</div> 
-							<div class="ck"></div>
-						</li>
-			<?php
-			}
-			?>
-					</ul>
+					
 				</div>
 			</div>
 		</section>
