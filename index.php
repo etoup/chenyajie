@@ -200,7 +200,7 @@ $(document).ready(function(){
 			</div>
 		</section>
 		
-		<section class="section page4" style="background-position:center bottom;">
+		<section class="section page2" style="background-position:center bottom;">
 			<div class="section-content-container">
 				<hgroup>
 					<?php
@@ -274,7 +274,7 @@ $(document).ready(function(){
 				<div onclick="location='case.php'" class="rbslider-item-list-more">MORE</div>
 			</div> 
 		</section>
-		<section class="section page2">
+		<section class="section page4">
 			<div class="section-content-container">
 				<hgroup>
 					<?php
