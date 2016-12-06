@@ -122,7 +122,7 @@ echo ' <li><a href="'.$gourl.'"><span><img src="img/pre.png"></span></a></li>';
 </div>
 <nav class="aside-container">
 	<ul>
-		<li><a href="index.php">网站首页</a></li>
+		<li><a href="/">网站首页</a></li>
 		<li><a class="cur" href="case.php"><?php echo GetCatName(1); ?></a></li>
 		<li><a href="news.php"><?php echo GetCatName(2); ?></a></li>
 	</ul>
