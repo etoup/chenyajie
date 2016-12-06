@@ -96,7 +96,7 @@ $(document).ready(function(){
 			<nav>
 				<a class="icon_menu" id="index_xs"><img src="img/caidan.png"></a>
 				<ul id="menu">
-					<li data-menuanchor="page1" class="active"><a data-name="home" href="#page1"><span>首页</span></a></li>
+					<li data-menuanchor="page1" class="active"><a data-name="home" href="/"><span>首页</span></a></li>
 				<?php echo GetNav(); ?>
 				<li style=" width:100%;float:right" id="index_x"><img src="img/close.png" style="padding-right:15px; float:right; margin-top:10px"></li>
 				</ul> 
