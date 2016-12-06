@@ -199,6 +199,81 @@ $(document).ready(function(){
 				<div class="rbslider-pagination"></div> 
 			</div>
 		</section>
+		
+		<section class="section page4" style="background-position:center bottom;">
+			<div class="section-content-container">
+				<hgroup>
+					<?php
+		$dopage->GetPage("SELECT * FROM `pmw_imgtext` WHERE id=67");
+		while($row = $dosql->GetArray())
+		{
+		?>
+					<h2><?php echo $row['title1']; ?></h2>
+					<h3><?php echo $row['title2']; ?></h3>
+			<?php
+			}
+			?>
+				</hgroup>
+				<div class="section-content" style="height: 536px; margin-top: 0;">
+					<iframe src="video.php" style="width: 100%;height: 100%;position: absolute;z-index: 1; border: none;" scrolling='no' ></iframe>
+				</div>
+			</div>
+		</section>
+		<section class="section page3" style="background-position:center bottom;">
+			<div class="section-content-container rbslider-item-list-container">
+				<hgroup>
+				<?php
+		$dopage->GetPage("SELECT * FROM `pmw_imgtext` WHERE id=23");
+		while($row = $dosql->GetArray())
+		{
+		?>
+					<h2><?php echo $row['title1']; ?></h2>
+					<h3><?php echo $row['title2']; ?></h3>
+			<?php
+			}
+			?>
+				</hgroup>
+				<div class="section-content rbslider-item-list-wrapper case-list">
+				<ul class="rbslider-item-list clearfix">
+				 <?php
+			$sql = "SELECT * FROM `#@__infoimg` WHERE (classid=1 OR parentstr LIKE '%,1,%') AND delstate='' AND checkinfo=true ORDER BY orderid DESC";
+		    $dopage->GetPage($sql,3);
+				while($row = $dosql->GetArray())
+				{
+				$clid=$row['classid'];
+			if($row['linkurl']=='' and $cfg_isreurl!='Y') $gourl = 'show.php?cid='.$row['classid'].'&id='.$row['id'];
+					else if($cfg_isreurl=='Y') $gourl = 'show-'.$row['classid'].'-'.$row['id'].'-1.html';
+					else $gourl = $row['linkurl'];
+			?>
+					<li><a href="<?php echo $gourl; ?>">
+						<div class="img-box">
+							<div class="img"><img src="<?php echo $row['picurl']; ?>" alt="<?php echo $row['title']; ?>" /></div> 
+							<div class="ck"></div>
+							<div class="cover"></div>  
+						</div>
+						<div class="intro">
+							<div class="intro-content">
+								
+								<h3><?php echo $row['title']; ?></h3>
+								<p><?php echo $row['keywords']; ?></p>
+							</div>
+							<div class="cover"></div>
+						</div></a>
+					</li>	
+			<?php
+			}
+			?>	
+					<a onclick="location='case.php'" class="wider-more" href="case.php">MORE</a>				
+				</ul>
+				 <div class="rbslider-pagination"></div>
+				</div>
+				<div class="navigation case">
+					<a class="prev"></a>
+					<a class="next"></a>
+				</div>
+				<div onclick="location='case.php'" class="rbslider-item-list-more">MORE</div>
+			</div> 
+		</section>
 		<section class="section page2">
 			<div class="section-content-container">
 				<hgroup>
@@ -298,80 +373,6 @@ $(document).ready(function(){
 			?>
 				</ul>
 			</div> 
-		</section>
-		<section class="section page3" style="background-position:center bottom;">
-			<div class="section-content-container rbslider-item-list-container">
-				<hgroup>
-				<?php
-		$dopage->GetPage("SELECT * FROM `pmw_imgtext` WHERE id=23");
-		while($row = $dosql->GetArray())
-		{
-		?>
-					<h2><?php echo $row['title1']; ?></h2>
-					<h3><?php echo $row['title2']; ?></h3>
-			<?php
-			}
-			?>
-				</hgroup>
-				<div class="section-content rbslider-item-list-wrapper case-list">
-				<ul class="rbslider-item-list clearfix">
-				 <?php
-			$sql = "SELECT * FROM `#@__infoimg` WHERE (classid=1 OR parentstr LIKE '%,1,%') AND delstate='' AND checkinfo=true ORDER BY orderid DESC";
-		    $dopage->GetPage($sql,3);
-				while($row = $dosql->GetArray())
-				{
-				$clid=$row['classid'];
-			if($row['linkurl']=='' and $cfg_isreurl!='Y') $gourl = 'show.php?cid='.$row['classid'].'&id='.$row['id'];
-					else if($cfg_isreurl=='Y') $gourl = 'show-'.$row['classid'].'-'.$row['id'].'-1.html';
-					else $gourl = $row['linkurl'];
-			?>
-					<li><a href="<?php echo $gourl; ?>">
-						<div class="img-box">
-							<div class="img"><img src="<?php echo $row['picurl']; ?>" alt="<?php echo $row['title']; ?>" /></div> 
-							<div class="ck"></div>
-							<div class="cover"></div>  
-						</div>
-						<div class="intro">
-							<div class="intro-content">
-								
-								<h3><?php echo $row['title']; ?></h3>
-								<p><?php echo $row['keywords']; ?></p>
-							</div>
-							<div class="cover"></div>
-						</div></a>
-					</li>	
-			<?php
-			}
-			?>	
-					<a onclick="location='case.php'" class="wider-more" href="case.php">MORE</a>				
-				</ul>
-				 <div class="rbslider-pagination"></div>
-				</div>
-				<div class="navigation case">
-					<a class="prev"></a>
-					<a class="next"></a>
-				</div>
-				<div onclick="location='case.php'" class="rbslider-item-list-more">MORE</div>
-			</div> 
-		</section>
-		<section class="section page4" style="background-position:center bottom;">
-			<div class="section-content-container">
-				<hgroup>
-					<?php
-		$dopage->GetPage("SELECT * FROM `pmw_imgtext` WHERE id=67");
-		while($row = $dosql->GetArray())
-		{
-		?>
-					<h2><?php echo $row['title1']; ?></h2>
-					<h3><?php echo $row['title2']; ?></h3>
-			<?php
-			}
-			?>
-				</hgroup>
-				<div class="section-content" style="height: 536px; margin-top: 0;">
-					<iframe src="video.php" style="width: 100%;height: 100%;position: absolute;z-index: 1; border: none;" scrolling='no' ></iframe>
-				</div>
-			</div>
 		</section>
 		<section class="section page5 white">
 			<div class="section-content-container rbslider-item-list-container">
