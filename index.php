@@ -368,7 +368,7 @@ $(document).ready(function(){
 			}
 			?>
 				</hgroup>
-				<div class="section-content">
+				<div class="section-content" style="height: 736px;">
 					<iframe src="<?php echo $cfg_video; ?>" style="width: 100%;height: 100%;position: absolute;z-index: 1;" scrolling='no' ></iframe>
 				</div>
 			</div>
